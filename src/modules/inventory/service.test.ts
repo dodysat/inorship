@@ -1,8 +1,7 @@
 // service.test.ts
 import { InventoryService } from "./service"
 import { InventoryRepository } from "./repository"
-import { DtoOrderItemStatus } from "../order/types"
-import { DtoOrder } from "../order/types"
+import { DtoOrderItemStatus, DtoOrder } from "../order/types"
 import kafka from "../../config/kafka"
 
 jest.mock("./repository")

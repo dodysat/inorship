@@ -1,7 +1,6 @@
 import { OrderRepository } from "./repository"
 import prismaClient from "../../config/database"
-import { Order, OrderItem, OrderItemStatus } from "@prisma/client"
-import { Prisma } from "@prisma/client"
+import { Prisma, Order, OrderItem, OrderItemStatus } from "@prisma/client"
 
 // Properly mock Prisma client with nested order and orderItem models
 jest.mock("../../config/database", () => ({

@@ -4,7 +4,7 @@
 
 This project implements a simple inventory, order and shipping system. The system is designed to handle concurrent order requests and inventory changes. Each module is implemented as a separate service and communicates with each other using Event Sourcing.
 
-### Diagram
+The diagram below shows the flow of the system.
 
 ![Diagram](docs/diagram.png)
 
@@ -32,11 +32,19 @@ This project implements a simple inventory, order and shipping system. The syste
 
 ### Edge Case
 
--
+- **Concurrent Order Request**
+  - The system should be able to handle concurrent order requests. The system should be able to update the inventory correctly and create the order correctly.
 
 ### Design Choice
 
--
+- Every Module is encapsulated and can be migrated to a separate service independently without affecting other modules.
+- Event Sourcing is used to communicate between modules. This allows the system to be more resilient to failure and can be scaled horizontally.
+
+### Future Development
+
+## Inventory Module
+
+## Shipping Module
 
 ## Usage
 
@@ -72,7 +80,7 @@ This will run all the tests in the project.
 #### Concurrent Order Request
 
 ```bash
-npm run test:concurrent
+npm run test:concurrency
 ```
 
 This will run the test for concurrent order requests. The test will create multiple order requests and check if the inventory is updated correctly. The test will also check if the order is created correctly.

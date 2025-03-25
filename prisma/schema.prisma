@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+model Order {
+  id String @id @default(uuid())
+  items OrderItem[]
+}
+
+model OrderItem {
+  id String @id @default(uuid())
+  productId String
+  quantity Int
+  status OrderItemStatus
+  order Order @relation(fields: [orderId], references: [id])
+  orderId String
+}
+
+enum OrderItemStatus {
+  FULFILLED
+  UNFULFILLED
+}
+
+model Inventory {
+  id String @id @default(uuid())
+  productId String
+  quantity Int
+}
+
+model Shipping {
+  id String @id @default(uuid())
+  orderId String
+  items ShippingItem[]
+  status ShippingStatus
+}
+
+model ShippingItem {
+  id String @id @default(uuid())
+  shippingId String
+  shipping Shipping @relation(fields: [shippingId], references: [id])
+  productId String
+  quantity Int
+
+}
+
+enum ShippingStatus {
+  PENDING
+  SHIPPED
+  DELIVERED
+}
