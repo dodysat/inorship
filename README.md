@@ -6,7 +6,7 @@ This project implements a simple inventory order and shipping system. The system
 
 ### Diagram
 
-![Diagram](src/diagram.png)
+![Diagram](docs/diagram.png)
 
 1. Create Order Order Module
    - verify input data
