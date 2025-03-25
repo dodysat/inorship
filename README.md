@@ -30,21 +30,10 @@ The diagram below shows the flow of the system.
 
 ## Overview
 
-### Edge Case
-
-- **Concurrent Order Request**
-  - The system should be able to handle concurrent order requests. The system should be able to update the inventory correctly and create the order correctly.
-
 ### Design Choice
 
 - Every Module is encapsulated and can be migrated to a separate service independently without affecting other modules.
 - Event Sourcing is used to communicate between modules. This allows the system to be more resilient to failure and can be scaled horizontally.
-
-### Future Development
-
-## Inventory Module
-
-## Shipping Module
 
 ## Usage
 
@@ -83,6 +72,22 @@ This will run all the tests in the project.
 npm run test:concurrency
 ```
 
-This will run the test for concurrent order requests. The test will create multiple order requests and check if the inventory is updated correctly. The test will also check if the order is created correctly.
+This will run the test for simultaneous order requests to test the system's ability to handle concurrent requests. With this implementation, the system should be able to handle concurrent requests and update the inventory correctly.
 
-#### Inventory Changes
+#### Fulfil Test Order
+
+```bash
+npm run test:fulfilment
+```
+
+This will run 3 test cases:
+
+1. Order 2 item with all item available
+2. Order 2 item with all item unavailable
+3. Order 4 item with 2 item available and 2 item unavailable
+
+#### Test Result
+
+![Test](docs/test.png)
+
+All modules are tested properly with total 23 test cases.
