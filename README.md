@@ -2,7 +2,7 @@
 
 ## Description
 
-This project implements a simple inventory order and shipping system. The system is designed to handle concurrent order requests and inventory changes. Each module is implemented as a separate service and communicates with each other using Event Sourcing.
+This project implements a simple inventory, order and shipping system. The system is designed to handle concurrent order requests and inventory changes. Each module is implemented as a separate service and communicates with each other using Event Sourcing.
 
 ### Diagram
 
@@ -32,7 +32,11 @@ This project implements a simple inventory order and shipping system. The system
 
 ### Edge Case
 
+-
+
 ### Design Choice
+
+-
 
 ## Usage
 
