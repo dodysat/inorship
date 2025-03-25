@@ -8,26 +8,25 @@ This project implements a simple inventory order and shipping system. The system
 
 ![Diagram](docs/diagram.png)
 
-1. Create Order Order Module
+1. Create Order **(Order Module)**
    - verify input data
    - store order data to DB
 2. Publish to OrderPlaced
-3. Subscribe to OrderPlaced Inventory Module
+3. Subscribe to OrderPlaced **(Inventory Module)**
    - subscribe to OrderPlaced
    - check data stock
    - if item unavialble publish to OutOfStock
    - if item available update data stock
 4. Publish to StockReserved
-5. Subscribe to StockReserved Order Module
-   - Update order & item
-
-## Modules
-
-### Inventory
-
-### Order
-
-### Shipping
+5. Subscribe to StockReserved **(Order Module)**
+   - Update order & item status
+   - if any item change to fullfilled publish to OrderReadyForShipping
+6. Publish to OrderReadyForShipping
+7. Subscribe to OrderReadyForShipping **(Shipping Module)**
+   - Update order status
+   - Create shipping label
+   - Publish to ShippingStatus
+8. Publish to ShippingStatus
 
 ## Overview
 
